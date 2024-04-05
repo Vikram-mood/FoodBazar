@@ -1,0 +1,15 @@
+
+let square1=(x)=>{ return x*x};
+console.log(square1(2)); ///OUTPUT: 4
+
+let square1_1=(x)=>{x*x}; /// HERE CURLY BRACKETS USED , WHENEVER WE USE CURLY BRACKETS WE SHOULD WRITE RETURN KEYWORD
+console.log(square1_1(2));   ///OUTPUT: undefined
+
+let square2=(x)=>(x*x);
+console.log(square2(3));  ///OUTPUT: 9
+
+let square2_1=(x)=>(return x*x);  //// HERE PARANTHESIS IS USED, WHENEVER WE USE PARANTHESIS WE SHOULDN'T WRITE RETRUN KEYWORD
+console.log(square2_1(4)) /// OUTPUT IS ERROR: Unexpected token 'return'
+
+let square3=(x)=> x*x;
+console.log(square3(5)); ///OUTPUT: 25
