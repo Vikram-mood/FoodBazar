@@ -86,13 +86,7 @@ const Books=()=>{
             {data.map((book)=>
                 <BookCard key={book.id} bookDetails={book} />
             )}
-            {/* <BookCard />
-            <BookCard/>
-            <BookCard/>
-            <BookCard/>
-            <BookCard/>
-            <BookCard/> */}
-
+        
             </div>
             
 
