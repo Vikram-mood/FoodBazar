@@ -1,8 +1,12 @@
 import React from "react";
-import ReactDOM  from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import Header from "./components/Hearder";
-
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Body from "./components/Body";
+import Error from "./Error";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import RestaurantMenu from "./components/RestaurantMenu";
 /***
  * 
  * 1. Header
@@ -21,26 +25,59 @@ import Body from "./components/Body";
  */
 
 
-      
 
 
 
 
-const AppLayout=()=>{
+
+const AppLayout = () => {
         return (
                 <div className="applayout">
                         <div className="Header">
-                                <Header/>
+                                <Header />
                         </div>
                         <div className="Body">
-                                <Body />
+                                <Outlet />
                         </div>
                 </div>
-                
-                
+
+
         )
 };
 
-let root=ReactDOM.createRoot(document.getElementById("root"));
+const appRouter = createBrowserRouter([
+        {
+                path: "/",
+                element: <AppLayout />,
+                errorElement: <Error />,
+                children: [
+                        {
+                                path:"/",
+                                element:<Body />
+                        },
+                        {
+                                path: "/about",
+                                element: <About />
+                        },
+                        {
+                                path: "/contact",
+                                element: <Contact />
+                        },
+                        {
+                                path:"/restaurant/:resId",
+                                element:<RestaurantMenu />,
+                                errorElement:<Error />
+                                
+                        }
+                        
+                
+                ]
 
-root.render(<AppLayout />);
+
+        },
+        
+])
+
+let root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(<RouterProvider router={appRouter} />);
