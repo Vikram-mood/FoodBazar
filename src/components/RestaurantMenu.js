@@ -2,41 +2,41 @@ import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
 
 import { useParams } from "react-router-dom";
-import { MENU_URL } from "../utils/constants";
-
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+// import { MENU_URL } from "../utils/constants";
+import MenuItems from "./MenuItems";
 
 const RestaurantMenu=()=>{
     
-    const [menuItem,setMenuItem]=useState(null);
+    // const [menuItem,setMenuItem]=useState(null);
     const {resId}=useParams();
-    // console.log(params);
-    useEffect(()=>{
-        console.log("useEffefct called");
-        fetchMenuData();
-    },[])
+    // console.log(resId);
 
-    const fetchMenuData=async ()=>{
-        const menuData=await fetch(MENU_URL+resId);
-        const jsonData=await menuData.json();
-        
-        setMenuItem(jsonData);
-        console.log(jsonData);
-    }
+    const menuItem=useRestaurantMenu(resId);
+
+    
 
 
     if(menuItem===null ) return <Shimmer />
-    console.log("menu Item: "+ typeof menuItem);
+   
     
     const resName=menuItem?.data?.cards[0]?.card?.card?.text ;
+ 
 
     const menuObj=menuItem?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-    console.log(typeof menuObj);
+    
+    console.log(menuObj);
     return(
-        <div className="menu">
-            <h1>{resName}</h1>
-            <h2>Menu</h2>
-            <ul>
+        <div className="menu m-4">
+            <h1 className="font-bold text-center">{resName}</h1>
+            <h2 className="font-bold text-center">Menu</h2>
+            {/* {console.log(menuObj[0].card.info)} */}
+            {/* <ul>
                 {menuObj.map((item) => (<li key= {item.card.info.id}>{item.card.info.name} - {item.card.info.defaultPrice || item.card.info.price }</li>))}
+                
+            </ul> */}
+            <ul>
+                {menuObj.map((item) => (<li key= {item.card.info.id}><MenuItems menuInfo={item.card.info} /></li>))}
                 
             </ul>
             
