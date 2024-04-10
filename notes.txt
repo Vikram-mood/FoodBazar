@@ -30,3 +30,19 @@ const [showIndex, setShowIndex] = useState(1);
 
          // Here we are trying to chane the showindex in child componet.   
          and setfunction is sent as argument as a function. Tried to send set function as normal argument but, getting "infine loop error"
+
+
+
+
+data sent received by reducer from dispatch AddItem(item) to action.
+payload
+: 
+card
+: 
+{@type: 'type.googleapis.com/swiggy.presentation.food.v2.Dish', info: {…}, analytics: {…}, hideRestaurantDetails: true}
+[[Prototype]]
+: 
+Object
+type
+: 
+"cart/AddItem"

@@ -4,11 +4,13 @@ import Header from "./components/Hearder";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Body from "./components/Body";
 import Error from "./Error";
+import Cart from "./components/Cart";
 // import About from "./components/About";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./utils/UserContext";
-
+import { Provider } from "react-redux"
+import appStore from "./utils/appStore";
 
 /***
  * 
@@ -30,25 +32,27 @@ import UserContext from "./utils/UserContext";
 const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
 
-        const [userName,setUserName]=useState();
-        useEffect(()=>{
-           const data={
-                name:"Vikram",
-           } 
-           setUserName(data.name);    
-        },[])
+        const [userName, setUserName] = useState();
+        useEffect(() => {
+                const data = {
+                        name: "Vikram",
+                }
+                setUserName(data.name);
+        }, [])
 
         return (
-                <UserContext.Provider value={{Userlogged:userName,setUserName}}>
-                <div className="applayout">
-                        <div className="Header">
-                                <Header />
-                        </div>
-                        <div className="Body">
-                                <Outlet />
-                        </div>
-                </div>
-                </UserContext.Provider>
+                <Provider store={appStore}>
+                        <UserContext.Provider value={{ Userlogged: userName, setUserName }}>
+                                <div className="applayout">
+                                        <div className="Header">
+                                                <Header />
+                                        </div>
+                                        <div className="Body">
+                                                <Outlet />
+                                        </div>
+                                </div>
+                        </UserContext.Provider>
+                </Provider>
         )
 };
 
@@ -69,6 +73,10 @@ const appRouter = createBrowserRouter([
                         {
                                 path: "/contact",
                                 element: <Contact />
+                        },
+                        {
+                                path:"/cart",
+                                element:<Cart />
                         },
                         {
                                 path: "/restaurant/:resId",
