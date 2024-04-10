@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { IMG_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const RestaurantCard=(props)=>{
         const {resData}=props;
-    const {name,cuisines,avgRating,sla,costForTwo,cloudinaryImageId}= resData?.info;
+        const {name,cuisines,avgRating,sla,costForTwo,cloudinaryImageId}= resData?.info;
+        const {Userlogged}=useContext(UserContext)
     
 //     const {name,cuisines,avgRating,sla,costForTwo,cloudinaryImageId}= resData?.data?.cards[4]?.card?.card?.info;
 
@@ -16,9 +19,11 @@ const RestaurantCard=(props)=>{
                     <div className="flex justify-between">
                     <h4>{avgRating} stars</h4>
                     <h4>{sla.deliveryTime}mins</h4>
+                   
                     </div>
                     
                     <h4 >{costForTwo}</h4>
+                    <h4>User: {Userlogged}</h4>
                     
             </div>
     );

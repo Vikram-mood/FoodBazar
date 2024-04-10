@@ -13,3 +13,20 @@ console.log(square2_1(4)) /// OUTPUT IS ERROR: Unexpected token 'return'
 
 let square3=(x)=> x*x;
 console.log(square3(5)); ///OUTPUT: 25
+
+
+
+
+Q: Can Child component  change the parent state variable ?
+Yes, if we send state function as argument as a function then, just calling that function.
+const [showIndex, setShowIndex] = useState(1);
+{categories.map((category, index) =>
+                <RestaurantCategory
+                    data={category.card.card}
+                    key={category.card.card.title}
+                    showItems={index === showIndex ? true : false}
+                    setShowIndex={() => setShowIndex(index)} />  
+            )}
+
+         // Here we are trying to chane the showindex in child componet.   
+         and setfunction is sent as argument as a function. Tried to send set function as normal argument but, getting "infine loop error"

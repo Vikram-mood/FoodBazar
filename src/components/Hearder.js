@@ -1,12 +1,14 @@
 
 import { LOGO_URL } from "../utils/constants";
 import logo from '../../images/logo.jpeg';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "./useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
 const Header=()=>{
         const [loginBtn,setLoginBtn]=useState("Login");
-
+        const {Userlogged}=useContext(UserContext);
 
         const isOnline=useOnlineStatus();
     return (
@@ -21,6 +23,7 @@ const Header=()=>{
                                     <li className="p-3"><Link to="/about">About US </Link></li>
                                     <li className="p-3"><Link to="/contact">Contact US</Link></li>
                                     <li className="p-3">Cart</li>
+                                    <li className="p-3">{Userlogged}</li>
                                     <button className="login-btn" onClick={()=>{
                                         loginBtn==="Login"?setLoginBtn("Logout"):setLoginBtn("Login");
                                         

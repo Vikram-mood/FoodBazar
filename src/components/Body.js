@@ -1,10 +1,11 @@
 import RestaurantCard from "./RestaurantCard"
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 // import { restaurantList } from "../utils/mocData";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "./useOnlineStatus";
 
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 function filterData(text, restaurants) {
 
 
@@ -19,6 +20,9 @@ const Body = () => {
     const [listOfRestarant, setListOfRestarant] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
+
+    const {Userlogged,setUserName}=useContext(UserContext);
+    
     
 
     useEffect(()=>{
@@ -44,7 +48,7 @@ const Body = () => {
     if(isOnline===false) return (
         
     <div>
-        {console.log("online: "+isOnline)}
+        {/* {console.log("online: "+isOnline)} */}
         <h1>You're offline .... please check your internet connection</h1>
     </div>)
     
@@ -67,9 +71,16 @@ const Body = () => {
                     const filteredList = listOfRestarant.filter((res) => res.info.avgRating >= 4)
                     // setListOfRestarant(filteredList);
                     setFilteredRestaurant(filteredList);
-                    console.log(filteredList);
+                    // console.log(filteredList);
 
                 }}>Top rated</button>
+
+                <input className="border-b-2 "
+                 placeholder="usename" 
+                 value={Userlogged} 
+                 onChange={(e)=>{setUserName(e.target.value)}}>
+                    
+                 </input>
 
 
 
