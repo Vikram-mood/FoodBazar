@@ -17,9 +17,9 @@ const Header = () => {
         //  We are getting this store data from <providere argument> in app.js,
         // complete app is wrapped inside this provider componet, we can access this store anywhere inside our app.
         const cartItems = useSelector((store) => { 
-                console.log(store);
-                console.log(store.cart);
-                console.log(store.cart.items)
+                // console.log(store);
+                // console.log(store.cart);
+                // console.log(store.cart.items)
                 return store.cart.items});
 
         return (
@@ -34,7 +34,7 @@ const Header = () => {
                                         <li className="p-3"><Link to="/about">About US </Link></li>
                                         <li className="p-3"><Link to="/contact">Contact US</Link></li>
                                         <li className="p-3 font-bold "><Link to="/cart">Cart-({cartItems.length})</Link></li>
-                                        <li className="p-3">{Userlogged}</li>
+                                         {/* <li className="p-3">{Userlogged}</li> */}
                                         <button className="login-btn" onClick={() => {
                                                 loginBtn === "Login" ? setLoginBtn("Logout") : setLoginBtn("Login");
 

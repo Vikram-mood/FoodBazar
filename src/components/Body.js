@@ -75,12 +75,12 @@ const Body = () => {
 
                 }}>Top rated</button>
 
-                <input className="border-b-2 "
+                {/* <input className="border-b-2 "
                  placeholder="usename" 
                  value={Userlogged} 
                  onChange={(e)=>{setUserName(e.target.value)}}>
                     
-                 </input>
+                 </input> */}
 
 
 

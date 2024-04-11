@@ -1,19 +1,27 @@
 import { IMG_URL } from "../utils/constants";
 import {useDispatch} from "react-redux";
-import { AddItem } from "../utils/cartSlice";
+import { AddItem, RemoveItem } from "../utils/cartSlice";
+import { useState } from "react";
 
 const ItemList = (props) => {
     // console.log(props);
     const { items } = props;
+
+    
     //    const {imageId,name,defaultPrice,description} =props.items.card.info;
     const dispatch=useDispatch()
     const handleAddItem=(item)=>{
+       
         dispatch(AddItem(item));
     };
+    const handleDelItem=(index)=>{
+        console.log(index);
+        dispatch(RemoveItem(index));
+    }
 
     return (
         <div>
-            {items.map((item) => (
+            {items.map((item,index) => (
                 <div key={item.card.info.id} className="m-2 p-2 border-gray-200 border-b-2 text-left flex justify-between">
                     <div className="w-9/12">
                         <div className="py-2 font-semibold">
@@ -22,12 +30,17 @@ const ItemList = (props) => {
                         </div>
                         <p className="text-xs">{item.card.info.description}</p>
                     </div>
-                    <div className="3/12">
-                        <div className="absolute">
-                            <button className=" p-2  shadow-sm bg-white text-black rounded-sm " 
-                            onClick={()=>handleAddItem(item)}>
-                            ADD+
+                    <div className="3/12 flex justify-between">
+                        <div className="absolute ">
+                        <button className=" p-2  m-2 shadow-sm bg-black text-white rounded-sm " 
+                            onClick={()=>handleDelItem(index)}>
+                                -
                             </button>
+                            <button className=" p-2  shadow-sm bg-black text-white rounded-sm " 
+                            onClick={()=>handleAddItem(item)}>
+                                +
+                            </button>
+                            
 
                         </div>
                         <img src={IMG_URL + item.card.info.imageId} className="w-40" />

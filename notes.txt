@@ -46,3 +46,17 @@ Object
 type
 : 
 "cart/AddItem"
+
+
+
+REDUX V/S UseContext
+
+React's useContext hook and Redux are both state management tools, but they are designed to handle different needs in a React app.
+
+Redux is a centralized store that can hold the entire state of an application, and its actions and reducers manage updates to the state. It's useful when you have complex or large state management needs, and you want to maintain a single source of truth for your state.
+
+On the other hand, useContext hook is a simpler alternative to Redux, especially when your state needs are small or local. It provides a way to pass data from a parent component to its children components without having to pass the data down as props through every level. This can make your code more readable and maintainable.
+
+In summary, you can use either useContext or Redux depending on the complexity and size of your state management needs. If you have simple state needs, you can use useContext, but if your state needs are more complex or large, you can use Redux to manage it more effectively.
+
+

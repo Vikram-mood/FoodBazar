@@ -4,6 +4,7 @@ import UserContext from "../utils/UserContext";
 
 const RestaurantCard=(props)=>{
         const {resData}=props;
+        // console.log(resData)
         const {name,cuisines,avgRating,sla,costForTwo,cloudinaryImageId}= resData?.info;
         const {Userlogged}=useContext(UserContext)
     
@@ -23,7 +24,7 @@ const RestaurantCard=(props)=>{
                     </div>
                     
                     <h4 >{costForTwo}</h4>
-                    <h4>User: {Userlogged}</h4>
+                    {/* <h4>User: {Userlogged}</h4> */}
                     
             </div>
     );
