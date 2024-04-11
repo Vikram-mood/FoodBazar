@@ -2,12 +2,12 @@
 Online Food Delivary Platform.
 Technologies: ReactJS, Tailwind CSS, Redux, Swiggy API
 
-1. Developed a responsive online food delivery website, leveraging ReactJS for the frontend and Tailwind CSS for custom, responsive design layouts, ensuring a seamless user experience across devices.
-2. Integrated Redux for efficient state management across the application, facilitating features like cart management and restaurant searches without reloading the page.
-3. Implemented real-time data fetching from the Swiggy API to display live restaurant data, including top-rated restaurants, menus, and user reviews, enhancing the user interface with dynamic content.
-4. Designed and deployed advanced search functionality to enable users to find restaurants by name, utilizing debounce techniques for optimizing search performance and user experience.
-5. Engineered comprehensive cart functionality, allowing users to add, remove, and clear items, with updates reflected in real-time through a meticulously managed Redux state, improving user engagement and satisfaction.
-6. Adopted modern development practices, including Git for version control and Agile methodologies, contributing to a collaborative and iterative development process.
+--> Developed a responsive online food delivery website, leveraging ReactJS for the frontend and Tailwind CSS for custom, responsive design layouts, ensuring a seamless user experience across devices.
+--> Integrated Redux for efficient state management across the application, facilitating features like cart management and restaurant searches without reloading the page.
+--> Implemented real-time data fetching from the Swiggy API to display live restaurant data, including top-rated restaurants, menus, and user reviews, enhancing the user interface with dynamic content.
+--> Designed and deployed advanced search functionality to enable users to find restaurants by name, utilizing debounce techniques for optimizing search performance and user experience.
+--> Engineered comprehensive cart functionality, allowing users to add, remove, and clear items, with updates reflected in real-time through a meticulously managed Redux state, improving user engagement and satisfaction.
+--> Adopted modern development practices, including Git for version control and Agile methodologies, contributing to a collaborative and iterative development process.
 
 
 How to run the App
