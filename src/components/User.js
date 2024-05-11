@@ -9,7 +9,9 @@ const User=(props)=>{
     const [info,setInfo]=useState("https://dummy.com");
 
     useEffect(()=>{
+        console.log("useEffect called in userdata");
         getData();
+
 
 
     },[])

@@ -26,8 +26,9 @@ const Body = () => {
     
 
     useEffect(()=>{
+        console.log("use Effect is called");
         fetchData();
-    }, [])
+    },[])
 
     const fetchData = async (params) => {
         // console.log(params);
@@ -38,7 +39,7 @@ const Body = () => {
         // console.log(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setListOfRestarant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
-        // console.log(json);
+        console.log(json);
         // return json;
 
     }
